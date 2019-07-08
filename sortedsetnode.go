@@ -24,26 +24,27 @@
 
 package sortedset
 
-type SortedSetLevel struct {
-	forward *SortedSetNode
+// Level sorted set level
+type Level struct {
+	forward *Node
 	span    int64
 }
 
 // Node in skip list
-type SortedSetNode struct {
+type Node struct {
 	key      string      // unique key of this node
 	Value    interface{} // associated data
 	score    SCORE       // score to determine the order of this node in the set
-	backward *SortedSetNode
-	level    []SortedSetLevel
+	backward *Node
+	level    []Level
 }
 
-// Get the key of the node
-func (this *SortedSetNode) Key() string {
-	return this.key
+// Key Get the key of the node
+func (zset *Node) Key() string {
+	return zset.key
 }
 
-// Get the node of the node
-func (this *SortedSetNode) Score() SCORE {
-	return this.score
+// Score Get the node of the node
+func (zset *Node) Score() SCORE {
+	return zset.score
 }

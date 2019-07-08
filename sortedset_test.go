@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func checkOrder(t *testing.T, nodes []*SortedSetNode, expectedOrder []string) {
+func checkOrder(t *testing.T, nodes []*Node, expectedOrder []string) {
 	if len(expectedOrder) != len(nodes) {
 		t.Errorf("nodes does not contain %d elements", len(expectedOrder))
 	}
